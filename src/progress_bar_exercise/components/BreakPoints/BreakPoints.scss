@@ -1,0 +1,22 @@
+@import '../../../shared_styles/colors.scss';
+
+.break-points {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 15px;
+
+    &__input {
+        opacity: 0;
+    
+        &::placeholder {
+            color: $gray-light;
+            opacity: 1;
+        }
+    
+        // Justification: This avoids the jumping buttons generated from adding and removing the input from the DOM, which I believe is bad UX.
+        &--show {
+            opacity: 1;
+        }
+    }
+}
