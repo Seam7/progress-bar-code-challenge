@@ -5,6 +5,8 @@ import Button from "./components/Button";
 import { ticksToScale } from "./utils/helperFunctions";
 import { TOTAL_TICKS_NEEDED } from "./utils/constants";
 import { TICKS_TO_STOP, TIME_TO_TICK } from "./utils/constants";
+import BreakPoints from "./components/BreakPoints";
+import useBreakPoints from "./components/BreakPoints/useBreakPoints";
 import "./ProgressBarExercise.scss";
 
 const ProgressBarExercise = () => {
@@ -22,13 +24,15 @@ const ProgressBarExercise = () => {
 export default ProgressBarExercise;
 
 // ----------------------------------------------------------------------------------
-
 const Solution = () => {
   const [isRequestActive, setIsRequestActive] = useState(false);
 
   const [ticksPassedSinceRequestStarted, setTicksPassedSinceRequestStarted] =
     useState(0);
   const [isRequestComplete, setIsRequestComplete] = useState(false);
+
+  const { breakPointsValue, handleBreakPointsChange, breakPointsArray } =
+    useBreakPoints();
 
   useEffect(() => {
     if (isRequestActive && ticksPassedSinceRequestStarted < TICKS_TO_STOP) {
@@ -53,6 +57,11 @@ const Solution = () => {
           TOTAL_TICKS_NEEDED
         )}
         isRequestComplete={isRequestComplete}
+        breakPoints={breakPointsArray}
+      />
+      <BreakPoints
+        breakPointsValue={breakPointsValue}
+        handleBreakPointsChange={handleBreakPointsChange}
       />
       <div className="solution__buttons-container">
         <Button

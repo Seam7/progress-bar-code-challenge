@@ -3,12 +3,24 @@
  * Given 10 ticks equal 1s
  * 15s needs to be 90%
  * therefore 100% equals 16.66s
- * then we transform back to ticks by multiplying 16.66s * 10
+ * then we transform back to ticks by multiplying 16.66s * 10.
  */
 export const TOTAL_TICKS_NEEDED = 166.66;
 
-// This comes from the 15s needs to be 90% constraint. 15s * 10 gives us the amount of ticks
+// This comes from the 15s needs to be 90% constraint. 15s * 10 gives us the amount of ticks.
 export const TICKS_TO_STOP = 150;
 
-// One tick equals 100ms.
+// One tick equals 100ms. This allows us to have some granularity for the breakpoints.
 export const TIME_TO_TICK = 100;
+
+/**
+ * Assumption:
+ * "Around a breakpoint" leaves some room to interpretation.
+ * I would normally ask product what it means, but given the circumstances I went with this.
+ */
+export const AROUND_TOLERANCE = 1;
+
+export const ANIMATION_TIME = {
+  SLOW: 4,
+  NORMAL: 1,
+};
