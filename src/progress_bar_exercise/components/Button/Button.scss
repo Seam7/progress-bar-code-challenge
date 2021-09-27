@@ -1,0 +1,36 @@
+@import "../../../shared_styles/colors.scss";
+
+.button {
+    background-color: $white;
+    border-radius: 50px;
+    border: 1px solid;
+    width: 160px;
+    height: 40px;
+    padding: 5px 15px;
+
+    &--start {
+        border-color: $green;
+        color: $green;
+    }
+    
+    &--finish {
+        border-color: $red;
+        color: $red
+    }
+    
+    &:hover {
+        border-width: 2px;
+    }
+    
+    &:active {
+        border-width: 3px;
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+
+        &:hover {
+            border-width: 1px;
+        }
+    }
+}
